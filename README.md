@@ -1,3 +1,5 @@
 # Apollo Remote
 <img width="2688" height="1536" alt="_8KI1hTxlcaLHSdi" src="https://github.com/user-attachments/assets/ed05babc-f068-47d4-b0bf-e5017f0b7907" />
+<img width="532" height="269" alt="Screenshot 2026-09-27 at 4 25 10 PM" src="https://github.com/user-attachments/assets/0b775b07-44ab-4e38-ae26-4f3c41b508ab" />
+
 Apollo Remote Control that works with Apple OEM Volume Keys with a cutomizable Mute Key to Activate Mono or DIM Switch,Sample Rate Selection. Clean Swift UI with slider options, Live Menu Bar Meters,and features that actually matter when you’re working with high output studio monitors. Protective Volume Lock + Live Status Menu bar, Multiple HUD Displays,to choose from. First time ever coding like that but it was made with love i can assure you. New to Github and want to credit all of the features ive gathered from everybody here to make the ultimate APP! People are charging for this... All credit to OG Sources where its do. Out of 10 different programs i came across i just have not landed one that i found perfect. 4 days no sleep getting this thing right and i dont think it will ever be truly done. But this is what i got. Blessings

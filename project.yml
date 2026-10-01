@@ -1,0 +1,61 @@
+name: ApolloRemote
+options:
+  bundleIdPrefix: com.noiseheroes
+  deploymentTarget:
+    macOS: "14.0"
+  xcodeVersion: "15.0"
+
+settings:
+  base:
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "1"
+    DEVELOPMENT_TEAM: ""
+    CODE_SIGN_STYLE: Automatic
+
+targets:
+  ApolloRemote:
+    type: application
+    platform: macOS
+    sources:
+      - path: ApolloRemote
+        excludes:
+          - "*.entitlements"
+      - path: Shared
+      - path: Assets.xcassets
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.noiseheroes.ApolloRemote
+        INFOPLIST_FILE: ApolloRemote/Info.plist
+        CODE_SIGN_ENTITLEMENTS: ApolloRemote/ApolloRemote.entitlements
+        LD_RUNPATH_SEARCH_PATHS: "@executable_path/../Frameworks"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+    dependencies:
+      - target: ApolloRemoteWidget
+        embed: true
+
+  ApolloRemoteWidget:
+    type: app-extension
+    platform: macOS
+    sources:
+      - path: ApolloRemoteWidget
+        excludes:
+          - "*.entitlements"
+      - path: Shared/Models.swift
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.noiseheroes.ApolloRemote.widget
+        INFOPLIST_FILE: ApolloRemoteWidget/Info.plist
+        CODE_SIGN_ENTITLEMENTS: ApolloRemoteWidget/ApolloRemoteWidget.entitlements
+        LD_RUNPATH_SEARCH_PATHS: "@executable_path/../Frameworks @executable_path/../../../../Frameworks"
+        SKIP_INSTALL: YES
+
+schemes:
+  ApolloRemote:
+    build:
+      targets:
+        ApolloRemote: all
+        ApolloRemoteWidget: all
+    run:
+      config: Debug
+    archive:
+      config: Release

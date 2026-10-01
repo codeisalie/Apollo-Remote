@@ -9,225 +9,307 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/noiseheroes/ApolloRemote/releases"><img src="https://img.shields.io/github/v/release/noiseheroes/ApolloRemote?style=flat-square" alt="Release"></a>
+  <a href="https://github.com/noiseheroes/ApolloRemote/releases">
+    <img src="https://img.shields.io/github/v/release/noiseheroes/ApolloRemote?style=flat-square" alt="Release">
+  </a>
   <img src="https://img.shields.io/badge/macOS-14.0+-blue?style=flat-square" alt="macOS 14.0+">
   <img src="https://img.shields.io/badge/Swift-5.10-orange?style=flat-square" alt="Swift 5.10">
-  <a href="LICENSE"><img src="https://img.shields.io/github/license/noiseheroes/ApolloRemote?style=flat-square" alt="License"></a>
+  <a href="LICENSE">
+    <img src="https://img.shields.io/github/license/noiseheroes/ApolloRemote?style=flat-square" alt="License">
+  </a>
 </p>
 
 ---
-<img width="2688" height="1536" alt="7RBmC9FKlwoSWOzX" src="https://github.com/user-attachments/assets/76e79b09-3272-4c12-bfcd-5f08384d8c11" />
-<img width="2688" height="1536" alt="_8KI1hTxlcaLHSdi" src="https://github.com/user-attachments/assets/5e01dc4e-4a7b-4457-9d45-0ab15fa560ff" />
-<img width="369" height="177" alt="Screenshot 2026-09-30 at 4 20 31 PM" src="https://github.com/user-attachments/assets/4c45dba6-37bd-41a3-94a2-1162ccf89394" />
+
+<img width="2688" height="1536" alt="Apollo Remote main interface" src="https://github.com/user-attachments/assets/76e79b09-3272-4c12-bfcd-5f08384d8c11" />
+
+<img width="2688" height="1536" alt="Apollo Remote settings" src="https://github.com/user-attachments/assets/5e01dc4e-4a7b-4457-9d45-0ab15fa560ff" />
+
+<img width="369" height="177" alt="Apollo Remote menu bar interface" src="https://github.com/user-attachments/assets/4c45dba6-37bd-41a3-94a2-1162ccf89394" />
 
 ## Overview
 
-Apollo Remote is a native macOS menu bar app for controlling Universal Audio Apollo monitor output. Works locally or remotely over your network — control volume, mute, dim, and mono from any Mac on your LAN.
+**Apollo Remote** is a native macOS menu bar application for controlling Universal Audio Apollo monitor output.
 
-No need to keep UA Console open on your screen. Just click the menu bar icon.
+It can control an Apollo locally or remotely over your network, providing direct access to:
+
+* Volume
+* Mute
+* Dim
+* Mono
+
+No need to keep UA Console visible on your screen. Apollo Remote lives in the macOS menu bar and provides quick access to your Apollo monitor controls.
 
 ## Features
 
-| Feature | Description |
-|---------|-------------|
-| **Volume Control** | Full range slider (-96 to 0 dB) with precision curve and real-time display |
-| **Mac Volume Keys** | Remaps the keyboard's volume/mute keys to drive the Apollo directly (see below) |
-| **Mute / Dim / Mono** | One-click toggles with visual feedback |
-| **Network Control** | Connect to any Apollo on your LAN, not just localhost |
-| **Auto-Discovery** | Automatically find UA Console instances via Bonjour |
-| **Multi-Device** | Enumerate and select devices and outputs dynamically from protocol |
-| **Real-time Sync** | Subscribe-based push updates — instant sync with hardware |
-| **Auto-Reconnect** | Exponential backoff reconnection, auto-launches UA Mixer Engine |
-| **macOS Widget** | WidgetKit widget shows volume, mute/dim/mono status at a glance |
-| **Persistent Config** | Remembers last host, device, and output across restarts |
-| **Native UI** | SwiftUI menu bar app, follows Apple HIG |
-| **Zero Dependencies** | Built entirely with Apple frameworks |
+| Feature                      | Description                                                                    |
+| ---------------------------- | ------------------------------------------------------------------------------ |
+| **Volume Control**           | Full-range volume control from -96 dB to 0 dB with real-time display           |
+| **Mac Volume Keys**          | Directly maps the keyboard's volume and mute keys to the Apollo                |
+| **Mute / Dim / Mono**        | One-click monitor controls with visual feedback                                |
+| **Network Control**          | Connect to an Apollo through any Mac running UA Mixer Engine on your LAN       |
+| **Auto-Discovery**           | Automatically discovers UA Mixer Engine instances using Bonjour                |
+| **Multi-Device**             | Dynamically discovers and selects available Apollo devices and outputs         |
+| **Real-Time Sync**           | Subscription-based updates provide immediate synchronization with the hardware |
+| **Auto-Reconnect**           | Automatically reconnects using exponential backoff                             |
+| **Mixer Engine Management**  | Starts and manages the required UA Mixer Engine process                        |
+| **macOS Widget**             | WidgetKit widget displays volume, mute, dim, and mono status                   |
+| **Persistent Configuration** | Remembers the last host, device, and output                                    |
+| **Native UI**                | Built with SwiftUI and designed around Apple's macOS interface conventions     |
+| **Zero Dependencies**        | Built entirely with Apple frameworks                                           |
 
 ## Requirements
 
-- **macOS 14.0** (Sonoma) or later
-- **Universal Audio Apollo** (Solo, Twin, x4, x6, x8, x8p, x16)
-- **UA Console / UA Mixer Engine** running on the target Mac
+* macOS 14.0 (Sonoma) or later
+* Universal Audio Apollo interface:
+
+  * Solo
+  * Twin
+  * x4
+  * x6
+  * x8
+  * x8p
+  * x16
+* Universal Audio software with **UA Mixer Engine** available on the target Mac
 
 ## Installation
 
 ### Download
 
-1. Download the latest `.dmg` from [Releases](https://github.com/noiseheroes/ApolloRemote/releases)
-2. Open the DMG and drag **Apollo Remote** to **Applications**
-3. **First launch:** Right-click the app → **Open** → **Open**
+1. Download the latest `.dmg` from [Releases](https://github.com/noiseheroes/ApolloRemote/releases).
+2. Open the DMG.
+3. Drag **Apollo Remote** into your Applications folder.
+4. On first launch, right-click the app and choose **Open**.
 
-> **Note:** The app is not notarized. macOS will block it on first launch.
-> Right-click → Open → Open. You only need to do this once.
+> **Note:** Apollo Remote is currently not notarized. macOS may block the first launch. Right-click the application, choose **Open**, and confirm **Open**. This is normally only required once.
 
 ### Build from Source
 
 ```bash
 git clone https://github.com/noiseheroes/ApolloRemote.git
 cd ApolloRemote
-xcodegen generate    # requires: brew install xcodegen
+xcodegen generate
 open ApolloRemote.xcodeproj
 ```
 
-Set your Development Team in Signing & Capabilities, then Build & Run.
+**Requirements for building:**
+
+* Xcode
+* XcodeGen (`brew install xcodegen`)
+
+Set your Development Team under **Signing & Capabilities**, then build and run the project.
 
 ## Usage
 
 ### Basic Controls
 
-1. **Click the dial icon** in your menu bar
-2. **Drag the slider** to adjust volume (-96 to 0 dB)
-3. **Click Mute / Dim / Mono** to toggle
-4. The panel closes when you click outside
+1. Click the Apollo Remote icon in the macOS menu bar.
+2. Drag the volume slider to adjust the monitor level.
+3. Click **Mute**, **Dim**, or **Mono** to toggle the corresponding control.
+4. Click outside the popover to dismiss it.
 
 ### Remote Control
 
-The app auto-discovers UA Console instances on your network. To connect to a remote Apollo:
+Apollo Remote can connect to UA Mixer Engine instances running on other Macs on the same network.
 
-1. Click the **gear icon** in the popover footer → **Settings**
-2. Go to the **Connection** tab — remote hosts appear automatically
-3. Click a host to connect, then choose your device and output
-4. Done — you're controlling the Apollo remotely
+1. Click the **gear icon** in the popover footer.
+2. Open **Settings → Connection**.
+3. Available hosts discovered on the network will appear automatically.
+4. Select the desired host.
+5. Select the Apollo device and output.
+6. Apollo Remote will connect and begin synchronizing with the selected output.
 
-You can also add hosts manually if auto-discovery doesn't find them.
+If automatic discovery does not find the desired host, a host can also be entered manually.
 
-### Mac Volume Keys
+## Mac Volume Keys
 
-Apollo Remote can take over the keyboard's volume-up, volume-down, and mute
-keys so they drive the Apollo's monitor level directly instead of the
-(non-functional) system volume HUD.
+Apollo Remote can take over the Mac's volume-up, volume-down, and mute keys and send those commands directly to the Apollo monitor output.
 
-This requires **Accessibility** permission — macOS only lets an app watch
-system-wide key presses once you've explicitly approved it in **System
-Settings → Privacy & Security → Accessibility**. Apollo Remote asks for this
-automatically:
+This requires **Accessibility** permission because macOS only allows applications to monitor system-wide keyboard events after the user has explicitly granted permission.
 
-1. On first launch (the feature is on by default), macOS shows its own
-   Accessibility permission prompt. Click **Open System Settings** and enable
-   the toggle for Apollo Remote.
-2. The app polls in the background and starts intercepting the keys the
-   moment you flip that switch — no need to relaunch.
-3. If you dismissed the prompt, or want to check the status later, open
-   **gear icon → Settings → Keyboard** and click **Authorize…**.
+### Enabling Volume Keys
 
-If the keys still don't respond after granting permission, make sure the
-Apollo is actually set as your Mac's **default output device** (System
-Settings → Sound) — the keys only take over while the Apollo is what macOS
-is currently playing through.
+1. Launch Apollo Remote.
+2. When macOS requests Accessibility permission, click **Open System Settings**.
+3. Enable **Apollo Remote** under:
+   **System Settings → Privacy & Security → Accessibility**
+4. Apollo Remote detects the permission automatically without requiring a restart.
 
-The mute / volume-down / volume-up keys are intercepted **directly** — no
-Fn, no ⌘, no chord. They drive the Apollo monitor level and fully replace
-Apple's greyed-out system volume HUD while the Apollo is the default output
-device, whether or not "Use F1, F2, etc. keys as standard function keys" is
-turned on in System Settings → Keyboard.
+You can also check the permission status from:
 
-### Settings
+**Apollo Remote → Settings → Keyboard → Authorize…**
 
-Access settings from the gear icon in the popover footer.
+### How the Keys Work
 
-| Tab | Options |
-|-----|---------|
-| **Connection** | Host auto-discovery, device/output pickers, manual host entry |
-| **Keyboard** | Accessibility status, volume-key toggle, step size, mute-key behavior |
-| **Audio** | Volume step size for keyboard shortcuts |
-| **General** | Launch at login, version info |
+When Apollo Remote is enabled and the Apollo is the Mac's current output device:
 
-### Widget
+* Volume Up → Apollo monitor volume up
+* Volume Down → Apollo monitor volume down
+* Mute → Apollo monitor mute
 
-Apollo Remote includes a macOS widget (small and medium sizes) that shows your current volume level and mute/dim/mono status in real time.
+The keys are intercepted directly. No **Fn**, **⌘**, or additional modifier is required.
+
+The behavior works regardless of whether **"Use F1, F2, etc. keys as standard function keys"** is enabled in macOS Keyboard settings.
+
+> **Important:** The Apollo must be selected as the Mac's current output device for the volume keys to take over.
+
+## Settings
+
+Settings are accessible through the **gear icon** in the main popover.
+
+| Tab            | Options                                                                |
+| -------------- | ---------------------------------------------------------------------- |
+| **Connection** | Host discovery, manual host entry, device selection, output selection  |
+| **Keyboard**   | Accessibility status, volume-key control, step size, mute-key behavior |
+| **Audio**      | Keyboard volume step size                                              |
+| **General**    | Launch at login, application information                               |
+
+## Widget
+
+Apollo Remote includes a macOS WidgetKit extension.
+
+The widget is available in small and medium sizes and displays:
+
+* Current monitor volume
+* Mute status
+* Dim status
+* Mono status
+
+The widget receives its state from the main application through the shared App Group.
 
 ## How It Works
 
-The app communicates with UA Mixer Engine via TCP on port `4710`. This is the same internal protocol used by Universal Audio's own software.
+Apollo Remote communicates with **UA Mixer Engine** using the same internal network protocol used by Universal Audio's software.
 
-```
+```text
 Transport: TCP/IP
 Port:      4710
-Host:      Any Mac running UA Mixer Engine (local or remote)
+Host:      Any Mac running UA Mixer Engine
 Format:    JSON over null-terminated strings
-Sync:      Subscribe-based push (not polling)
+Sync:      Subscribe-based push updates
 ```
 
 ### Connection Flow
 
-```
-1. Connect TCP to host:4710
-2. get /devices → enumerate available devices
-3. get /devices/{id} → device name, online status
-4. get /devices/{id}/outputs → enumerate outputs
-5. subscribe to CRMonitorLevel, Mute, DimOn, MixToMono
-6. Real-time push updates from UA Mixer Engine
+```text
+1. Connect to host:4710
+2. GET /devices
+3. GET /devices/{id}
+4. GET /devices/{id}/outputs
+5. Subscribe to monitor-level and monitor-state properties
+6. Receive real-time updates from UA Mixer Engine
 ```
 
 ### Protocol Commands
 
-| Command | Example |
-|---------|---------|
-| `get` | `get /devices/0/outputs/4/CRMonitorLevel` |
-| `set` | `set /devices/0/outputs/4/CRMonitorLevel/value/ -24.0` |
-| `subscribe` | `subscribe /devices/0/outputs/4/Mute` |
+| Command     | Example                                                |
+| ----------- | ------------------------------------------------------ |
+| `get`       | `get /devices/0/outputs/4/CRMonitorLevel`              |
+| `set`       | `set /devices/0/outputs/4/CRMonitorLevel/value/ -24.0` |
+| `subscribe` | `subscribe /devices/0/outputs/4/Mute`                  |
+
+## UAD Mixer Engine Lifecycle
+
+Apollo Remote requires **UA Mixer Engine** to communicate with an Apollo.
+
+When Apollo Remote starts, it launches the Universal Audio Mixer Engine executable:
+
+```text
+/Library/Application Support/Universal Audio/Apollo/UA Mixer Engine.app/Contents/MacOS/UA Mixer Engine
+```
+
+Apollo Remote does **not** launch UA Console.
+
+### Engine Management
+
+Apollo Remote manages the Mixer Engine session while the application is running:
+
+* Starts UA Mixer Engine when needed
+* Connects to the running engine
+* Uses the engine for Apollo communication
+* Monitors the connection
+* Automatically reconnects when necessary
+* Stops the Mixer Engine and associated mixer helper processes when Apollo Remote quits
+
+Apollo Remote also takes ownership of the Mixer Engine lifecycle if the engine was already running when Apollo Remote launched. In that case, the engine and its associated mixer helper processes are still stopped when Apollo Remote exits.
+
+> **Important:** Because Apollo Remote manages the Mixer Engine lifecycle, quitting Apollo Remote also terminates the Mixer Engine processes it manages.
 
 ## Project Structure
 
-```
+```text
 ApolloRemote/
-├── ApolloRemote/              # Main menu bar app
-│   ├── ApolloRemoteApp.swift  # App entry point
-│   ├── AppDelegate.swift       # Menu bar setup & lifecycle
-│   ├── MonitorView.swift       # Main popover UI (volume, controls, footer)
-│   ├── SettingsView.swift      # Settings window (Connection/Audio/General)
-│   ├── AboutView.swift         # About window
+├── ApolloRemote/                  # Main menu bar application
+│   ├── ApolloRemoteApp.swift      # Application entry point
+│   ├── AppDelegate.swift          # Menu bar setup and lifecycle
+│   ├── MonitorView.swift          # Main popover UI
+│   ├── SettingsView.swift         # Settings window
+│   ├── AboutView.swift            # About window
 │   └── Info.plist
 │
-├── ApolloRemoteWidget/        # macOS Widget (WidgetKit)
+├── ApolloRemoteWidget/            # WidgetKit extension
 │   └── ApolloRemoteWidget.swift
 │
-├── Shared/                     # Core logic (Models.swift shared with widget)
-│   ├── ApolloTCP.swift         # TCP client with message buffering
-│   ├── ApolloController.swift  # State management, enumeration, widget sync
-│   ├── Models.swift            # UAHost, UADevice, UAOutput, App Group constants
-│   └── NetworkDiscovery.swift  # Bonjour NWBrowser discovery
+├── Shared/                        # Shared application logic
+│   ├── ApolloTCP.swift             # TCP client and message buffering
+│   ├── ApolloController.swift      # State management and device control
+│   ├── Models.swift                 # Shared models and App Group constants
+│   └── NetworkDiscovery.swift      # Bonjour network discovery
 │
-├── Assets.xcassets/            # App icon
-├── scripts/                    # Build scripts, icon generator
-├── Installer/                  # DMG background assets
-└── project.yml                 # XcodeGen configuration
+├── Assets.xcassets/                # Application assets
+├── scripts/                        # Build and icon-generation scripts
+├── Installer/                      # DMG installer assets
+└── project.yml                     # XcodeGen configuration
 ```
 
 ## Troubleshooting
 
 ### "Connecting..." but never connects
 
-- Make sure **UA Console** or **UA Mixer Engine** is running on the target Mac
-- For remote: verify the target Mac's IP and that port 4710 is accessible
-- Check that both Macs are on the same network/subnet
+* Make sure UA Mixer Engine is available on the target Mac.
+* For remote connections, verify that the target Mac is reachable.
+* Make sure both Macs are on the same network.
+* Verify that TCP port `4710` is not blocked by a firewall.
 
-### No devices found after connecting
+### No Devices Found
 
-- The Apollo must be powered on and connected to the host Mac
-- Try restarting UA Mixer Engine on the host Mac
+* Make sure the Apollo is powered on.
+* Verify that the Apollo is connected to the host Mac.
+* Restart UA Mixer Engine if necessary.
+* Reconnect Apollo Remote.
 
-### Volume changes don't sync from hardware
+### Volume Changes Do Not Sync
 
-- The app uses `subscribe` for real-time push updates
-- If sync stops, click the reconnect button in the footer
+Apollo Remote uses subscription-based updates rather than continuous polling.
 
-### Remote connection refused
+If synchronization stops:
 
-- UA Mixer Engine must be running on the remote Mac
-- Ensure no firewall is blocking port 4710
-- Try pinging the remote Mac to verify network connectivity
+1. Click the reconnect button in the footer.
+2. Verify that UA Mixer Engine is still running.
+3. Reconnect to the selected host if necessary.
 
-### Widget not updating
+### Remote Connection Refused
 
-- Make sure the main app is running — the widget reads data shared via App Group
-- Try removing and re-adding the widget
+* Make sure UA Mixer Engine is running on the remote Mac.
+* Verify the remote Mac's IP address.
+* Check that TCP port `4710` is accessible.
+* Verify that macOS Firewall is not blocking the connection.
+* Confirm both Macs are reachable on the network.
+
+### Widget Not Updating
+
+* Make sure Apollo Remote is running.
+* The widget reads shared state from the application's App Group.
+* Try removing and re-adding the widget.
 
 ## Credits
 
-- Protocol discovery by **[cuefinger](https://github.com/franqulator/cuefinger)** ([@franqulator](https://github.com/franqulator))
-- Additional protocol reference from **[UA-Midi-Control](https://github.com/raduvarga/UA-Midi-Control)** ([@raduvarga](https://github.com/raduvarga))
-- Created by [Noise Heroes](https://github.com/noiseheroes)
+Protocol research and reference material:
+
+* **[cuefinger](https://github.com/franqulator/cuefinger)** — protocol discovery
+* **[UA-Midi-Control](https://github.com/raduvarga/UA-Midi-Control)** — additional protocol reference
+
+Created by **[Noise Heroes](https://github.com/noiseheroes)**.
 
 ## License
 
@@ -235,13 +317,6 @@ MIT License — see [LICENSE](LICENSE) for details.
 
 ## Disclaimer
 
-This is an **unofficial third-party application**. Universal Audio, Apollo, and UA Console are trademarks of Universal Audio, Inc. This project is not affiliated with or endorsed by Universal Audio.
+Apollo Remote is an **unofficial third-party application**.
 
-
-## UAD Mixer Engine lifecycle
-
-ApolloRemote starts the Universal Audio Mixer Engine executable before connecting:
-
-`/Library/Application Support/Universal Audio/Apollo/UA Mixer Engine.app/Contents/MacOS/UA Mixer Engine`
-
-UA Console is not launched. ApolloRemote owns the Mixer Engine session while it is running and stops the engine and its mixer helper processes when the app quits, including an engine that was already running at launch.
+Universal Audio, Apollo, and UA Console are trademarks of Universal Audio, Inc. Apollo Remote is not affiliated with, sponsored by, or endorsed by Universal Audio, Inc.

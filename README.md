@@ -9,13 +9,13 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/noiseheroes/ApolloRemote/releases">
-    <img src="https://img.shields.io/github/v/release/noiseheroes/ApolloRemote?style=flat-square" alt="Release">
+  <a href="https://github.com/codeisalie/Apollo-Remote/releases">
+    <img src="https://img.shields.io/github/v/release/codeisalie/Apollo-Remote?style=flat-square" alt="Release">
   </a>
   <img src="https://img.shields.io/badge/macOS-14.0+-blue?style=flat-square" alt="macOS 14.0+">
   <img src="https://img.shields.io/badge/Swift-5.10-orange?style=flat-square" alt="Swift 5.10">
   <a href="LICENSE">
-    <img src="https://img.shields.io/github/license/noiseheroes/ApolloRemote?style=flat-square" alt="License">
+    <img src="https://img.shields.io/github/license/codeisalie/Apollo-Remote?style=flat-square" alt="License">
   </a>
 </p>
 
@@ -76,7 +76,7 @@ No need to keep UA Console visible on your screen. Apollo Remote lives in the ma
 
 ### Download
 
-1. Download the latest `.dmg` from [Releases](https://github.com/noiseheroes/ApolloRemote/releases).
+1. Download the latest `.dmg` from [Releases](https://github.com/codeisalie/Apollo-Remote/releases).
 2. Open the DMG.
 3. Drag **Apollo Remote** into your Applications folder.
 4. On first launch, right-click the app and choose **Open**.
@@ -86,8 +86,8 @@ No need to keep UA Console visible on your screen. Apollo Remote lives in the ma
 ### Build from Source
 
 ```bash
-git clone https://github.com/noiseheroes/ApolloRemote.git
-cd ApolloRemote
+git clone https://github.com/codeisalie/Apollo-Remote.git
+cd Apollo-Remote
 xcodegen generate
 open ApolloRemote.xcodeproj
 ```
@@ -238,7 +238,7 @@ Apollo Remote also takes ownership of the Mixer Engine lifecycle if the engine w
 ## Project Structure
 
 ```text
-ApolloRemote/
+Apollo-Remote/
 ├── ApolloRemote/                  # Main menu bar application
 │   ├── ApolloRemoteApp.swift      # Application entry point
 │   ├── AppDelegate.swift          # Menu bar setup and lifecycle
@@ -251,20 +251,20 @@ ApolloRemote/
 │   └── ApolloRemoteWidget.swift
 │
 ├── Shared/                        # Shared application logic
-│   ├── ApolloTCP.swift             # TCP client and message buffering
-│   ├── ApolloController.swift      # State management and device control
-│   ├── Models.swift                 # Shared models and App Group constants
-│   └── NetworkDiscovery.swift      # Bonjour network discovery
+│   ├── ApolloTCP.swift            # TCP client and message buffering
+│   ├── ApolloController.swift     # State management and device control
+│   ├── Models.swift               # Shared models and App Group constants
+│   └── NetworkDiscovery.swift     # Bonjour network discovery
 │
-├── Assets.xcassets/                # Application assets
-├── scripts/                        # Build and icon-generation scripts
-├── Installer/                      # DMG installer assets
-└── project.yml                     # XcodeGen configuration
+├── Assets.xcassets/               # Application assets
+├── scripts/                       # Build and icon-generation scripts
+├── Installer/                     # DMG installer assets
+└── project.yml                    # XcodeGen configuration
 ```
 
 ## Troubleshooting
 
-### "Connecting..." but never connects
+### "Connecting..." but Never Connects
 
 * Make sure UA Mixer Engine is available on the target Mac.
 * For remote connections, verify that the target Mac is reachable.

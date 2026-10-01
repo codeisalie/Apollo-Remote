@@ -16,7 +16,6 @@
 </p>
 
 ---
-src="https://github.com/user-attachments/assets/dea9fd27-098d-433a-8e2d-a1264e9aa762" />
 <img width="2688" height="1536" alt="7RBmC9FKlwoSWOzX" src="https://github.com/user-attachments/assets/76e79b09-3272-4c12-bfcd-5f08384d8c11" />
 <img width="2688" height="1536" alt="_8KI1hTxlcaLHSdi" src="https://github.com/user-attachments/assets/5e01dc4e-4a7b-4457-9d45-0ab15fa560ff" />
 ## Overview

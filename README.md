@@ -18,6 +18,8 @@
 ---
 <img width="2688" height="1536" alt="7RBmC9FKlwoSWOzX" src="https://github.com/user-attachments/assets/76e79b09-3272-4c12-bfcd-5f08384d8c11" />
 <img width="2688" height="1536" alt="_8KI1hTxlcaLHSdi" src="https://github.com/user-attachments/assets/5e01dc4e-4a7b-4457-9d45-0ab15fa560ff" />
+<img width="369" height="177" alt="Screenshot 2026-09-30 at 4 20 31 PM" src="https://github.com/user-attachments/assets/4c45dba6-37bd-41a3-94a2-1162ccf89394" />
+
 ## Overview
 
 Apollo Remote is a native macOS menu bar app for controlling Universal Audio Apollo monitor output. Works locally or remotely over your network — control volume, mute, dim, and mono from any Mac on your LAN.
